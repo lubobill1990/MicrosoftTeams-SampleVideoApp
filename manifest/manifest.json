@@ -1,0 +1,103 @@
+{
+  "$schema": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-app-schema/preview/DevPreview/MicrosoftTeams.schema.json",
+  "manifestVersion": "devPreview",
+  "version": "1.0.0",
+  "id": "73d49226-b5c0-42f0-b918-acd20e8a2288",
+  "packageName": "com.microsoft.teams.videopp",
+  "developer": {
+    "name": "Microsoft",
+    "websiteUrl": "https://www.microsoft.com",
+    "privacyUrl": "https://privacy.microsoft.com/privacystatement",
+    "termsOfUseUrl": "https://www.microsoft.com/servicesagreement"
+  },
+  "icons": {
+    "color": "73d49226-b5c0-42f0-b918-acd20e8a2288_largeImage.png",
+    "outline": "73d49226-b5c0-42f0-b918-acd20e8a2288_smallImage.png"
+  },
+  "name": {
+    "short": "Sample Video App",
+    "full": "Sample video app to guide developing new video app in Teams"
+  },
+  "description": {
+    "short": "For development purpose only",
+    "full": "To develop a new video app in Teams, please refer to the sample app and the documentation."
+  },
+  "accentColor": "#FFFFFF",
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "devicePermissions": [
+    "media"
+  ],
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "name": "CameraStream.Read.User",
+          "type": "Delegated"
+        },
+        {
+          "name": "OutgoingVideoStream.Write.User",
+          "type": "Delegated"
+        }
+      ]
+    }
+  },
+  "validDomains": [
+    "99c2-2404-f801-9000-18-d92e-7203-73b6-814c.ngrok-free.app"
+  ],
+  "localizationInfo": {
+    "defaultLanguageTag": "en-us"
+  },
+  "meetingExtensionDefinition": {
+    "videoFilters": [
+      {
+        "id": "00000000-0000-0000-0001-000000000000",
+        "name": "Others_Gray scale by sample app",
+        "thumbnail": "00000000-0000-0000-0001-000000000000_thumbnail.png"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "Others_Send back origin video frame with 0ms delay by sample app",
+        "thumbnail": "00000000-0000-0000-0000-000000000000_thumbnail.png"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000030",
+        "name": "Others_Send back origin video frame with 30ms delay by sample app",
+        "thumbnail": "00000000-0000-0000-0000-000000000030_thumbnail.png"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000050",
+        "name": "Others_Send back origin video frame with 50ms delay by sample app",
+        "thumbnail": "00000000-0000-0000-0000-000000000050_thumbnail.png"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000080",
+        "name": "Others_Send back origin video frame with 80ms delay by sample app",
+        "thumbnail": "00000000-0000-0000-0000-000000000080_thumbnail.png"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000120",
+        "name": "Others_Send back origin video frame with 120ms delay by sample app",
+        "thumbnail": "00000000-0000-0000-0000-000000000120_thumbnail.png"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000200",
+        "name": "Others_Send back origin video frame with 200ms delay by sample app",
+        "thumbnail": "00000000-0000-0000-0000-000000000200_thumbnail.png"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000000500",
+        "name": "Others_Send back origin video frame with 500ms delay by sample app",
+        "thumbnail": "00000000-0000-0000-0000-000000000500_thumbnail.png"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000002000",
+        "name": "Others_Send back origin video frame with 2000ms delay by sample app",
+        "thumbnail": "00000000-0000-0000-0000-000000002000_thumbnail.png"
+      }
+    ],
+    "videoFiltersConfigurationUrl": "https://99c2-2404-f801-9000-18-d92e-7203-73b6-814c.ngrok-free.app/"
+  }
+}
