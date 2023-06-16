@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useCallback, useEffect, useRef } from 'react'
 import './App.css'
 import { app, video } from "@microsoft/teams-js";
@@ -74,7 +75,7 @@ function App() {
       /**
           * Callback function to process the video frames shared by the host.
           */
-      videoBufferHandler: async (videoBufferData: video.VideoBufferData, notifyVideoFrameProcessed, notifyError) => {
+      videoBufferHandler: async (videoBufferData: video.VideoBufferData, notifyVideoFrameProcessed, _notifyError) => {
         const frame = new VideoFrame(videoBufferData.videoFrameBuffer, {
           format: "NV12",
           codedWidth: videoBufferData.width,
@@ -84,7 +85,8 @@ function App() {
         const outputFrame = await videoFrameHandler({
           videoFrame: frame
         });
-        const bitmap = createImageBitmap(outputFrame);
+        const bitmap = await createImageBitmap(outputFrame);
+        console.log(bitmap.width);
         //TODO convert bitmap pixels to NV12 and copy back to videoBufferData.videoFrameBuffer
         notifyVideoFrameProcessed();
       },
