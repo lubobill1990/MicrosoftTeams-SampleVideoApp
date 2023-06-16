@@ -163,10 +163,10 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@microsoft/teams-js@file:./microsoft-teams-js-2.10.1.tgz":
-  version "2.10.1"
-  resolved "file:microsoft-teams-js-2.10.1.tgz"
-  integrity sha512-t1dKrUZwch4oixD02iDVzaA1+Nkja4CBMHPCpty6wlH0Iei2Qjfu0xxMrC8AoFH/5ZZHNhyGLPPlRYbgBycTVw==
+"@microsoft/teams-js@^2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@microsoft/teams-js/-/teams-js-2.12.0.tgz#4fe17da390999b25a7e7f21ec07c29344b726b36"
+  integrity sha512-4gBtIC/Jc4elZ+R9i1LR+4QFwTAPtJ4P1MsCMDafe3HLtFGu/ZQngG9jZkWQ4A/rP4z1wNaDNn39XC+dLfURHQ==
   dependencies:
     debug "^4.3.3"
 

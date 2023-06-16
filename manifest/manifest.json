@@ -45,7 +45,7 @@
     }
   },
   "validDomains": [
-    "99c2-2404-f801-9000-18-d92e-7203-73b6-814c.ngrok-free.app"
+    "microsoft-teams-sample-video-app.vercel.app"
   ],
   "localizationInfo": {
     "defaultLanguageTag": "en-us"
@@ -96,8 +96,13 @@
         "id": "00000000-0000-0000-0000-000000002000",
         "name": "Others_Send back origin video frame with 2000ms delay by sample app",
         "thumbnail": "00000000-0000-0000-0000-000000002000_thumbnail.png"
+      },
+      {
+        "id": "00000000-0000-0000-0000-000000004000",
+        "name": "Others_Send back origin video frame with 4000ms delay by sample app",
+        "thumbnail": "00000000-0000-0000-0000-000000004000_thumbnail.png"
       }
     ],
-    "videoFiltersConfigurationUrl": "https://99c2-2404-f801-9000-18-d92e-7203-73b6-814c.ngrok-free.app/"
+    "videoFiltersConfigurationUrl": "https://microsoft-teams-sample-video-app.vercel.app/"
   }
 }

@@ -26,14 +26,25 @@ function App() {
       }
       return Promise.resolve();
     });
-    video.mediaStream.registerForVideoFrame(async (frame: any) => {
+
+    const videoFrameHandler = async (frame: video.VideoFrameData): Promise<VideoFrame> => {
       const effectId = effectIdRef.current;
       const videoFrame = frame.videoFrame as VideoFrame;
       if (currentSize !== `${videoFrame.displayWidth}x${videoFrame.displayHeight}`) {
-        let newSize = `${videoFrame.displayWidth}x${videoFrame.displayHeight}`;
+        const newSize = `${videoFrame.displayWidth}x${videoFrame.displayHeight}`;
         console.log(`Input size changed from ${currentSize} to ${newSize}`);
         currentSize = newSize;
       }
+      
+      const imageBitmap = await createImageBitmap(videoFrame);
+      // Draw original video frame
+      if (originCanvasRef.current && videoFrame.displayWidth !== originCanvasRef.current.width) {
+        originCanvasRef.current.width = videoFrame.displayWidth;
+        originCanvasRef.current.height = videoFrame.displayHeight;
+        ctx2d = originCanvasRef.current?.getContext('2d');
+      }
+      ctx2d?.drawImage(imageBitmap, 0, 0, videoFrame.displayWidth, videoFrame.displayHeight);
+      
       if (effectId?.indexOf("00000000-0000-0000-0000-0000") === 0) {
         const latency = parseInt(effectId.split('-')[4]);
         return new Promise((resolve) => {
@@ -46,13 +57,6 @@ function App() {
         if (grayscale === null) {
           throw 'Grayscale effect is not initialized';
         }
-        const imageBitmap = await createImageBitmap(videoFrame);
-        if (originCanvasRef.current && videoFrame.displayWidth !== originCanvasRef.current.width) {
-          originCanvasRef.current.width = videoFrame.displayWidth;
-          originCanvasRef.current.height = videoFrame.displayHeight;
-          ctx2d = originCanvasRef.current?.getContext('2d');
-        }
-        ctx2d?.drawImage(imageBitmap, 0, 0, videoFrame.displayWidth, videoFrame.displayHeight);
         grayscale.draw(imageBitmap);
         const grayscaled = new VideoFrame(grayscale.getCanvas(), {
           timestamp: videoFrame.timestamp,
@@ -62,8 +66,35 @@ function App() {
         videoFrame.close();
         return grayscaled;
       }
-      return Promise.resolve(videoFrame);
-    })
+      return videoFrame;
+    }
+    
+    video.registerForVideoFrame({
+      videoFrameHandler,
+      /**
+          * Callback function to process the video frames shared by the host.
+          */
+      videoBufferHandler: async (videoBufferData: video.VideoBufferData, notifyVideoFrameProcessed, notifyError) => {
+        const frame = new VideoFrame(videoBufferData.videoFrameBuffer, {
+          format: "NV12",
+          codedWidth: videoBufferData.width,
+          codedHeight: videoBufferData.height,
+          timestamp: Date.now(),
+        });
+        const outputFrame = await videoFrameHandler({
+          videoFrame: frame
+        });
+        const bitmap = createImageBitmap(outputFrame);
+        //TODO convert bitmap pixels to NV12 and copy back to videoBufferData.videoFrameBuffer
+        notifyVideoFrameProcessed();
+      },
+      /**
+          * Video frame configuration supplied to the host to customize the generated video frame parameters, like format
+          */
+      config: {
+        format: video.VideoFrameFormat.NV12
+      }
+    });
   }, [effectIdRef])
 
   useEffect(() => {
@@ -77,7 +108,9 @@ function App() {
   return <>
     <div className="card">
       <h1>This is a Microsoft Teams sample video app</h1>
+      <h3>Original video</h3>
       <canvas ref={originCanvasRef} style={{ width: '100%' }}></canvas>
+      <h3>Processed video</h3>
       <div ref={canvasWrapRef} style={{ width: '100%' }}></div>
     </div>
   </>
