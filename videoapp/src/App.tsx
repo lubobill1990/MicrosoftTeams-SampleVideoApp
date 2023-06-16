@@ -14,6 +14,9 @@ function App() {
     let ctx2d = originCanvasRef.current?.getContext('2d');
     video.registerForVideoEffect((effectId: string | undefined) => {
       console.log(`New effect selected ${effectId}`);
+      if (effectId === '00000000-0000-0001-0000-000000000000') {
+        return Promise.reject();
+      }
       effectIdRef.current = effectId;
       if (effectId === '00000000-0000-0000-0001-000000000000') {
         if (grayscale === null) {
