@@ -134,6 +134,8 @@ function App() {
         console.log(bitmap.width);
         //TODO convert bitmap pixels to NV12 and copy back to videoBufferData.videoFrameBuffer
         notifyVideoFrameProcessed();
+        frame.close();
+        outputFrame.close();
       },
       /**
        * Video frame configuration supplied to the host to customize the generated video frame parameters, like format
