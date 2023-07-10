@@ -34,6 +34,9 @@ function App() {
     const videoFrameHandler = async (frame: video.VideoFrameData): Promise<VideoFrame> => {
       const effectId = effectIdRef.current;
       const videoFrame = frame.videoFrame as VideoFrame;
+      if (effectId === '00000000-0000-0000-0000-000000000000') {
+        return videoFrame;
+      }
       if (currentSize !== `${videoFrame.displayWidth}x${videoFrame.displayHeight}`) {
         const newSize = `${videoFrame.displayWidth}x${videoFrame.displayHeight}`;
         console.log(`Input size changed from ${currentSize} to ${newSize}`);
