@@ -18,7 +18,6 @@ function App() {
   const initializeVideoApp = useCallback(() => {
     let grayscale: WebGL2Grayscale | null = null;
     let currentSize = "";
-    let ctx2d = originCanvasRef.current?.getContext("2d");
     video.registerForVideoEffect((effectId: string | undefined) => {
       console.log(`New effect selected ${effectId}`);
       if (effectId === "00000000-0000-0001-0000-000000000000") {
@@ -68,24 +67,7 @@ function App() {
           throw "Grayscale effect is not initialized";
         }
 
-        const imageBitmap = await createImageBitmap(videoFrame);
-        // Draw original video frame
-        if (
-          originCanvasRef.current &&
-          videoFrame.displayWidth !== originCanvasRef.current.width
-        ) {
-          originCanvasRef.current.width = videoFrame.displayWidth;
-          originCanvasRef.current.height = videoFrame.displayHeight;
-          ctx2d = originCanvasRef.current?.getContext("2d");
-        }
-        ctx2d?.drawImage(
-          imageBitmap,
-          0,
-          0,
-          videoFrame.displayWidth,
-          videoFrame.displayHeight
-        );
-        grayscale.draw(imageBitmap);
+        grayscale.draw(videoFrame);
         const grayscaled = new VideoFrame(grayscale.getCanvas(), {
           timestamp: videoFrame.timestamp,
           displayHeight: videoFrame.displayHeight,
@@ -109,17 +91,17 @@ function App() {
       ) => {
         const effectId = effectIdRef.current;
         if (!effectId || effectId === "00000000-0000-0000-0000-000000000000") {
-           notifyVideoFrameProcessed();
-           return;
+          notifyVideoFrameProcessed();
+          return;
         }
 
         const latency = getLatencyFromEffectId(effectId);
         if (latency > 0) {
-            setTimeout(() => {
-              notifyVideoFrameProcessed();
-            }, latency);
-            return;
-        } 
+          setTimeout(() => {
+            notifyVideoFrameProcessed();
+          }, latency);
+          return;
+        }
 
         const frame = new VideoFrame(videoBufferData.videoFrameBuffer, {
           format: "NV12",
