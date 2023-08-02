@@ -1,12 +1,18 @@
 import { video } from "@microsoft/teams-js";
 import { WebGL2Grayscale } from "./webgl2";
+import Worker from './worker?worker'
+import { Deferred } from "./deferred";
 
 const ZERO_DELAY_EMPTY_EFFECT_ID = "00000000-0000-0000-0000-000000000000";
 const GRAYSCALE_EFFECT_ID = "00000000-0000-0000-0001-000000000000";
+const EFFECT_REQUIRE_BUFFER = "00000000-0000-0000-0002-000000000000";
+const EFFECT_USING_WORKER = "00000000-0000-0000-0003-000000000000";
 const EFFECT_ID_FAILED_TO_LOAD_ASSET = "00000000-0000-0001-0000-000000000000";
 
 export class VideoApp {
   private grayscaleProcessor: WebGL2Grayscale | null = null;
+  private worker: Worker | null = null;
+  private deferredVideoFrame: Deferred<VideoFrame> | null = null;
   private selectedEffectId: string | undefined = undefined;
 
   videoEffectSelected(effectId: string | undefined) {
@@ -28,6 +34,21 @@ export class VideoApp {
       this.grayscaleProcessor.tearDown();
       this.grayscaleProcessor = null;
     }
+
+    if (effectId === EFFECT_USING_WORKER) {
+      if (this.worker === null) {
+        this.worker = new Worker();
+        this.worker.onmessage = (e) => {
+          if (e.data instanceof VideoFrame) {
+            this.deferredVideoFrame?.resolve(e.data);
+          }
+        }
+      }
+    } else if (this.worker !== null) {
+      this.worker.terminate();
+      this.worker = null;
+    }
+
     console.log(
       `New effect selected ${effectId}. We are ready to process video frames using this effect. Resolving the promise.`
     );
@@ -57,12 +78,41 @@ export class VideoApp {
       });
     }
 
+    if (effectId === EFFECT_USING_WORKER) {
+      if (this.worker === null) {
+        throw "Worker effect is not initialized";
+      }
+      this.deferredVideoFrame = new Deferred<VideoFrame>();
+      this.worker.postMessage(videoFrame, [videoFrame]);
+
+      return this.deferredVideoFrame.promise;
+    }
+
+    if (effectId === EFFECT_REQUIRE_BUFFER) {
+      const downSampledWidth = 320;
+      const downSampledHeight = 180;
+      const imageBitmap = await createImageBitmap(videoFrame, {
+        resizeWidth: downSampledWidth,
+        resizeHeight: downSampledHeight,
+      });
+      const videoFrameRgba = new VideoFrame(imageBitmap, {
+        displayHeight: downSampledHeight,
+        displayWidth: downSampledWidth,
+        timestamp: videoFrame.timestamp,
+        alpha: "discard",
+      });
+      const videoBuffer = new Uint8Array(videoFrameRgba.displayWidth * videoFrameRgba.displayHeight * 4);
+      await videoFrameRgba.copyTo(videoBuffer);
+
+      return videoFrame;
+    }
+
     if (effectId === GRAYSCALE_EFFECT_ID) {
       if (this.grayscaleProcessor === null) {
         throw "Grayscale effect is not initialized";
       }
-      const imageBitmap = await createImageBitmap(videoFrame);
-      this.grayscaleProcessor.draw(imageBitmap);
+
+      this.grayscaleProcessor.draw(videoFrame);
       const grayscaledVideoFrame = new VideoFrame(
         this.grayscaleProcessor.getCanvas(),
         {

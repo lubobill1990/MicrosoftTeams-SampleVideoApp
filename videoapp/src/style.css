@@ -8,6 +8,7 @@
 
 #canvasWrap, video {
   width: 320px;
+  max-width: 100%;
 }
 canvas {
   width: 100%;
