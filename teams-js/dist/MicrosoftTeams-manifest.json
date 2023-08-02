@@ -1,0 +1,306 @@
+{
+  "../dts/index.d.ts": {
+    "src": "../dts/index.d.ts",
+    "integrity": "sha384-L0RRTwp2sTjjqxUySqE4uENp1x5uH5a2XKw3BmldqayvtkJ6A+FFlU/5UUtf0sMc"
+  },
+  "../dts/internal/VideoFrameTypes.d.ts": {
+    "src": "../dts/internal/VideoFrameTypes.d.ts",
+    "integrity": "sha384-kRKpRxcswfNsSCHKmx6PfRJgAk2PF6b1tqpFSQPJJ/KSKYgpwpseGBkdvVJAqp1S"
+  },
+  "../dts/internal/communication.d.ts": {
+    "src": "../dts/internal/communication.d.ts",
+    "integrity": "sha384-EIHHnKzOaiGEIkRiQsv9mxbbaie/yFFErj3K3C+uo9mc1GNrwpKtvY+N0sUWGDrx"
+  },
+  "../dts/internal/constants.d.ts": {
+    "src": "../dts/internal/constants.d.ts",
+    "integrity": "sha384-94KtL9xSkCzcaCgqb2Kd3X1UFwndFZPsNOQHpzXHhqGndqxltkoWtdceAx1kof79"
+  },
+  "../dts/internal/deepLinkConstants.d.ts": {
+    "src": "../dts/internal/deepLinkConstants.d.ts",
+    "integrity": "sha384-MstB3OpWyA0Wlv3gQ+Wt1k317CZaUMS7kAya0LEOvoVtcFWytw74h822ZDRlL8E2"
+  },
+  "../dts/internal/deepLinkUtilities.d.ts": {
+    "src": "../dts/internal/deepLinkUtilities.d.ts",
+    "integrity": "sha384-1dTufA5L3LjJCkVzhl+2aDH69GZ+CSZh25A9xsfTCYixrNxwC12RglEAdFaVXHdv"
+  },
+  "../dts/internal/globalVars.d.ts": {
+    "src": "../dts/internal/globalVars.d.ts",
+    "integrity": "sha384-KzXhlRLp2eh7bV6KPoR6wwQwzACB9nLLatdkwAGYHLfxRp16WOW7Q/UrEAS1lWBN"
+  },
+  "../dts/internal/handlers.d.ts": {
+    "src": "../dts/internal/handlers.d.ts",
+    "integrity": "sha384-d3g5JOzSNtTRghQKUKRgxb6pQMcGSfTNQa9cpyEitZ4ClUJnwP6uh5lNImFZYHxN"
+  },
+  "../dts/internal/interfaces.d.ts": {
+    "src": "../dts/internal/interfaces.d.ts",
+    "integrity": "sha384-/s/bLkjtR0vH5lIHR39yVPs/Habz/dibB+5MAbRiCzDNH+qeccBHWfByXjmwvBLY"
+  },
+  "../dts/internal/internalAPIs.d.ts": {
+    "src": "../dts/internal/internalAPIs.d.ts",
+    "integrity": "sha384-g49PU0QWv/lZZt6gbaC66/b7htFFrG7NQsXvvx0Djsqry6dLy+3gPT2+Wv1Hfcpf"
+  },
+  "../dts/internal/marketplaceUtils.d.ts": {
+    "src": "../dts/internal/marketplaceUtils.d.ts",
+    "integrity": "sha384-XaHhxQSQlcgHuom/J3B0Ln2p2yuax43Ae3irfvNWFrQV0r8vLHRZj4gx/Uj7IvLM"
+  },
+  "../dts/internal/mediaUtil.d.ts": {
+    "src": "../dts/internal/mediaUtil.d.ts",
+    "integrity": "sha384-qBx14kYcq36un6eFXydI7HexmM+xZLeETIxNBdIyEwuzumnKu+ameKkoIq9OcFLH"
+  },
+  "../dts/internal/profileUtil.d.ts": {
+    "src": "../dts/internal/profileUtil.d.ts",
+    "integrity": "sha384-inGU3lWyFtEANI2p62sl0YnuxeN5IhNggFI73Zc0CUqmhl2jzsxbheYo0vyRtFne"
+  },
+  "../dts/internal/telemetry.d.ts": {
+    "src": "../dts/internal/telemetry.d.ts",
+    "integrity": "sha384-hQnuYPughcCZSwDf+br+8ssAMsgr0Ir0uX7OPCm4EySN3uzdn/EKWfdGe1ItHi9o"
+  },
+  "../dts/internal/utils.d.ts": {
+    "src": "../dts/internal/utils.d.ts",
+    "integrity": "sha384-+hxiF1jYuK46+IWPFh4zpZmx0TcQYUw7yF6zvsWUhYIgYv9ID0MFCx7k2KZ/7xxe"
+  },
+  "../dts/internal/videoFrameTick.d.ts": {
+    "src": "../dts/internal/videoFrameTick.d.ts",
+    "integrity": "sha384-/did7bu8kKtB1wSobMfKvH07kT+Ye2i106IFKugaAJGwA1peS69ixGVYgpWIzDBP"
+  },
+  "../dts/internal/videoPerformanceMonitor.d.ts": {
+    "src": "../dts/internal/videoPerformanceMonitor.d.ts",
+    "integrity": "sha384-wtFlGXWMaOVPIrFGQUXeZvMi+WWF3uuAMSZgED9HwfJk5knQp1yJ5iqsv7NPssuW"
+  },
+  "../dts/internal/videoPerformanceStatistics.d.ts": {
+    "src": "../dts/internal/videoPerformanceStatistics.d.ts",
+    "integrity": "sha384-7lX57DJLPDRluqwzZAqtGPqzhkISyozHQuV2dpU9O0Eivz9RVY+zD9J1YGoQJwD6"
+  },
+  "../dts/internal/videoUtils.d.ts": {
+    "src": "../dts/internal/videoUtils.d.ts",
+    "integrity": "sha384-B4eKRB1402snn8KA0ANyBxd18n++oYilm98jHUaR6c8dBgCqu045RGWmZDkaXLu7"
+  },
+  "../dts/private/appEntity.d.ts": {
+    "src": "../dts/private/appEntity.d.ts",
+    "integrity": "sha384-J7kF2UCRiqZ9sIcPwn7M5p0SNOAqsD6v3YUQyixGemvqAISl0Q6YK6tOTdhdacxL"
+  },
+  "../dts/private/conversations.d.ts": {
+    "src": "../dts/private/conversations.d.ts",
+    "integrity": "sha384-qq4nG4sIkKhM3ENBTucfABKpBx9S06MVoNXxiVRXe+JBQb/njNUAGGf3t+xQOxrF"
+  },
+  "../dts/private/files.d.ts": {
+    "src": "../dts/private/files.d.ts",
+    "integrity": "sha384-7kX0MGC6vf17Q1P7ZJnwRcgVhCBSK78CooB2mNEpR7+ozxKLRAv8TOlD1dwnYLzM"
+  },
+  "../dts/private/inServerSideRenderingEnvironment.d.ts": {
+    "src": "../dts/private/inServerSideRenderingEnvironment.d.ts",
+    "integrity": "sha384-cX/MGq4kUmwlg37MckELaWNR66clZ0fBWyHp4PdMw52LItqBJa+1cDYrazKtsfmJ"
+  },
+  "../dts/private/index.d.ts": {
+    "src": "../dts/private/index.d.ts",
+    "integrity": "sha384-O6SzreQK2cf3d333ldBKBwqPVMs2E4hbRCVfEo5C8dojSx4WUxtuNzUTjG2m9MKN"
+  },
+  "../dts/private/interfaces.d.ts": {
+    "src": "../dts/private/interfaces.d.ts",
+    "integrity": "sha384-ZecKWvfeMJFIB8ksFtb89Tbxe8O9GP3QSDrj62zhkfXtst9TvD3XYxxjbIYMSIWp"
+  },
+  "../dts/private/logs.d.ts": {
+    "src": "../dts/private/logs.d.ts",
+    "integrity": "sha384-o883+apoOHrOuLPjIKXy1y+cvCyW9sA678T2mD5FLQgxtt7YJKvoT2YrzdmnhWJd"
+  },
+  "../dts/private/meetingRoom.d.ts": {
+    "src": "../dts/private/meetingRoom.d.ts",
+    "integrity": "sha384-sf3AW/0/ofWaa/OPk7FO0VydyS0brlw8Ve02HLw1+3JcNefm+NVyuLh2PTgaxjqv"
+  },
+  "../dts/private/notifications.d.ts": {
+    "src": "../dts/private/notifications.d.ts",
+    "integrity": "sha384-N5cjnNyPfzxrS48HV63klbBihqSUbEDofEZFReTFbA6hHSIgI3bGZNQVjKtXxWh9"
+  },
+  "../dts/private/privateAPIs.d.ts": {
+    "src": "../dts/private/privateAPIs.d.ts",
+    "integrity": "sha384-mU3080T8SpQ9JaRY+5JKKWzTZ6fL4nDAMMTqlB7oM8w4PePPbNbKof33TQ6puc8C"
+  },
+  "../dts/private/remoteCamera.d.ts": {
+    "src": "../dts/private/remoteCamera.d.ts",
+    "integrity": "sha384-TvLQ+Zc3YdKgixmz4Kt7hVM59zDaBZlxBNTfOA+um2ZKOt6Pxz7MSh0m4MD+QrC+"
+  },
+  "../dts/private/teams.d.ts": {
+    "src": "../dts/private/teams.d.ts",
+    "integrity": "sha384-+5WY7yXKLwt/blNaWVTv9LkxwetgZBvUNoNLV/4CKXev6wp6+1kGvCmnRVrVsOt9"
+  },
+  "../dts/private/videoEx.d.ts": {
+    "src": "../dts/private/videoEx.d.ts",
+    "integrity": "sha384-CO37Q2uQdbWj/eFoRQXp4LIblxnFacMRivMTdEVLmUYHMwgItyUtgPnRFqT3qYlc"
+  },
+  "../dts/public/adaptiveCards.d.ts": {
+    "src": "../dts/public/adaptiveCards.d.ts",
+    "integrity": "sha384-e7SFquNNFMUsVUnX7bAZmpQHm0vGVLWv9psaabkc61VzTOV1srU9YO/aZ6vcOV13"
+  },
+  "../dts/public/app.d.ts": {
+    "src": "../dts/public/app.d.ts",
+    "integrity": "sha384-75jzJ+1yJ0SZT7a2exvXgmypbKPcelJnUbrrhTOSV4J5hYN6kgZgWbOHVq09mgSR"
+  },
+  "../dts/public/appInitialization.d.ts": {
+    "src": "../dts/public/appInitialization.d.ts",
+    "integrity": "sha384-bVNtjSnZ4dSufJqZl9UdIrWXIibN9zoN69gcc5VW6zWY3fFtGmPAoeCXE6WKJwUt"
+  },
+  "../dts/public/appInstallDialog.d.ts": {
+    "src": "../dts/public/appInstallDialog.d.ts",
+    "integrity": "sha384-ixYFBN3ipCc9DFfQokLDnXyov03z+1eX8cY70Me+zI5rbgRKEEpMcj330/BE8VZO"
+  },
+  "../dts/public/appNotification.d.ts": {
+    "src": "../dts/public/appNotification.d.ts",
+    "integrity": "sha384-17z3Ab9MRvNvvzJRuxNh8HXa7GrCi5vcZr82LUOk3sMfmYowmmIYsuO7vE1dGxc8"
+  },
+  "../dts/public/appWindow.d.ts": {
+    "src": "../dts/public/appWindow.d.ts",
+    "integrity": "sha384-OHJYDTAGNibeN6IKzJiULxNArNGHWqlAQY9R6fZcwLF69/yHa+QVaRujyNuj2Un9"
+  },
+  "../dts/public/authentication.d.ts": {
+    "src": "../dts/public/authentication.d.ts",
+    "integrity": "sha384-ZOo1gfmMVWPPTaxHxvHN5JbPoV9+G27Hi1eDitwAWK+kJNnHwm1rUNyJKPhdfKoV"
+  },
+  "../dts/public/barCode.d.ts": {
+    "src": "../dts/public/barCode.d.ts",
+    "integrity": "sha384-JcjyY1XyxqR57D6ijXLR0J8fhvBifKFXC9YHaG0/LR6Ng+1uYDUw7G1Wr+OpcNUa"
+  },
+  "../dts/public/calendar.d.ts": {
+    "src": "../dts/public/calendar.d.ts",
+    "integrity": "sha384-JtnXojZ0NH/rr/N895ZkzmKf8nk32BmEABC1QQhhYy/MAcKuok7Hj7MYsL3K/fGm"
+  },
+  "../dts/public/call.d.ts": {
+    "src": "../dts/public/call.d.ts",
+    "integrity": "sha384-4YU4ntp68+hHYnyKF3AmcmMYyBr4a4kQ9apjAhZ6Mz5s4tWLUHi2i7WeiMqEgV/D"
+  },
+  "../dts/public/chat.d.ts": {
+    "src": "../dts/public/chat.d.ts",
+    "integrity": "sha384-xtapFRZpFl7Nz4hMH3ZRfzwRzdNCXTQnIY+RVGEW9fMpWkofsdYA8N0QM6e/Sh5m"
+  },
+  "../dts/public/constants.d.ts": {
+    "src": "../dts/public/constants.d.ts",
+    "integrity": "sha384-Lypzj5HhCaflUxrJ7lIpoes83dZuAsUserYT0IXBTaKIJ8j7A5tlZwKi6XUPZTnE"
+  },
+  "../dts/public/dialog.d.ts": {
+    "src": "../dts/public/dialog.d.ts",
+    "integrity": "sha384-GUgnCHZFZ0lXRF4hhFRo1VZGOZ8ugORvjiDQWgG86sFM3ExciHJ3qU9dTCFVdhez"
+  },
+  "../dts/public/geoLocation.d.ts": {
+    "src": "../dts/public/geoLocation.d.ts",
+    "integrity": "sha384-yaOHE6MBFtjDciaNexAJKOm0qrtW0pxfhJtRNjUYe1uHk7tRHIT5BaRG8E5TUX1K"
+  },
+  "../dts/public/index.d.ts": {
+    "src": "../dts/public/index.d.ts",
+    "integrity": "sha384-CLTXTuz6Dkuyk6s7rZ4j76F/QdND4p4Q4F6PCMjo6RW2Ycujt98duv/Tj1iUFy80"
+  },
+  "../dts/public/interfaces.d.ts": {
+    "src": "../dts/public/interfaces.d.ts",
+    "integrity": "sha384-f9dxMeYxF+bvoErtDuYI1G2uqeLU4OEGoKl+PqPWMfD2CFQEkl3p8U2wtxA/foDU"
+  },
+  "../dts/public/liveShareHost.d.ts": {
+    "src": "../dts/public/liveShareHost.d.ts",
+    "integrity": "sha384-gDmFkIXrtuCnZneOXha03eMi1uL0c9VnezjSNlc4MMgYTdhuNlxg5sAN4HnU8i8j"
+  },
+  "../dts/public/location.d.ts": {
+    "src": "../dts/public/location.d.ts",
+    "integrity": "sha384-lrulvbms8AjXEAKYAEn5E2sHGtT43dvAVIhRDIDW0Ydtwd2UkWQn0WEBm+NW2oGi"
+  },
+  "../dts/public/mail.d.ts": {
+    "src": "../dts/public/mail.d.ts",
+    "integrity": "sha384-0i8BxR1YEdNBMUezugaUCX4R/mpnRxltvTkau5BRzmrebSIY7rXcxotxA4+UPB99"
+  },
+  "../dts/public/marketplace.d.ts": {
+    "src": "../dts/public/marketplace.d.ts",
+    "integrity": "sha384-Mizvk1KE84uSCAuqx7gHFC3LQR4y48gHPRbwH7RGVIFPzX5nT9j7xfq/IrH6nB96"
+  },
+  "../dts/public/media.d.ts": {
+    "src": "../dts/public/media.d.ts",
+    "integrity": "sha384-6XTn1RL8pGWTixG+KKXGMrqp+QIqKSl2v9s6OZoh7cmsd9X9aNgiJrLX7H7c3DQQ"
+  },
+  "../dts/public/meeting.d.ts": {
+    "src": "../dts/public/meeting.d.ts",
+    "integrity": "sha384-Il6B5yylRSxO3B33twGeVzXlnOJHfDZFX9R8FYI94SeZS51F3P4hTbd/++c1T1ct"
+  },
+  "../dts/public/menus.d.ts": {
+    "src": "../dts/public/menus.d.ts",
+    "integrity": "sha384-a3oplovDHciRrwJ7XGxEe5fw36nWNYWkDXxpZU7gpjfrtdfcbdRWtXGPCUrsVaQ7"
+  },
+  "../dts/public/monetization.d.ts": {
+    "src": "../dts/public/monetization.d.ts",
+    "integrity": "sha384-NA+ZW2KtqpyQyOr5ryLCYZi1VsAY0jcFUPs745SwLftKmkvOoMIRMVKjrwL6mpqF"
+  },
+  "../dts/public/navigation.d.ts": {
+    "src": "../dts/public/navigation.d.ts",
+    "integrity": "sha384-5JYKGLUq6J5i2RWDgpVjUb83uy8/vcY5wYNIxDF79QtveyFXwKcPtWY2SmnIW9B5"
+  },
+  "../dts/public/pages.d.ts": {
+    "src": "../dts/public/pages.d.ts",
+    "integrity": "sha384-uwjVFzn5eAf61GtFLPL6qrYnwnQ0R5fbQ975PBbmhEcilS0Zlx1bpizjZbUke4c4"
+  },
+  "../dts/public/people.d.ts": {
+    "src": "../dts/public/people.d.ts",
+    "integrity": "sha384-okeYsicYgF1JB3ZwpaPG3zN5CzqTC2gBl5MGT1OEoePl4tQJBrFNDsM1KLWKSs/N"
+  },
+  "../dts/public/profile.d.ts": {
+    "src": "../dts/public/profile.d.ts",
+    "integrity": "sha384-0tvm2W4rbrwZJD+M2t2cP4bIT7PoNDPnZK87sthTDzYcAmaip+/pRjKZstoKQ6qV"
+  },
+  "../dts/public/publicAPIs.d.ts": {
+    "src": "../dts/public/publicAPIs.d.ts",
+    "integrity": "sha384-V47vIuqKQzCuE5nHPyMy1yTQxh1bdRZjREWs7M+Tvebs/zFgoDcKGn1rXedPc9u+"
+  },
+  "../dts/public/runtime.d.ts": {
+    "src": "../dts/public/runtime.d.ts",
+    "integrity": "sha384-AzjrU3z/SuhnnfOiJJqzOwFiHZTHeGRRJJTLWZ3EO1CPZG6I/f7yH7g0Y7FcN7SM"
+  },
+  "../dts/public/search.d.ts": {
+    "src": "../dts/public/search.d.ts",
+    "integrity": "sha384-RsXguCVCBtxMrt0fnWCDcJ1nZBxfRxswtPLlTXbrKbzMxsg5Gswtj8LWBhNWZAyH"
+  },
+  "../dts/public/secondaryBrowser.d.ts": {
+    "src": "../dts/public/secondaryBrowser.d.ts",
+    "integrity": "sha384-NTaabA/fYoAvveaNlLaJiMtc/dGTfWwhTwnjhxwRBUMvKoD+b45CEGFVerbastjC"
+  },
+  "../dts/public/settings.d.ts": {
+    "src": "../dts/public/settings.d.ts",
+    "integrity": "sha384-xW8a4yYxwJMLJ+Hwn7k4/wX1dUUgN0J6AnzvQinQjKgAzkbg94vFC2aX0RskWK7H"
+  },
+  "../dts/public/sharing.d.ts": {
+    "src": "../dts/public/sharing.d.ts",
+    "integrity": "sha384-N6pOt/z45uaqNu0NM5Nw6yAL6YTKENjm2vjfoGMW2udd7dPgLyen5xofg40Ws1OL"
+  },
+  "../dts/public/stageView.d.ts": {
+    "src": "../dts/public/stageView.d.ts",
+    "integrity": "sha384-BLmOb9jCvcB6liPYZfotq1mDbO/XfoCPIET48h0gMWcKyeX3nMazayLC3n8sxT28"
+  },
+  "../dts/public/tasks.d.ts": {
+    "src": "../dts/public/tasks.d.ts",
+    "integrity": "sha384-lkYOpA2JfOHGgP+TP+bT51ndwTQ4d4aAvnCwj5ugCuzSYid/CSsqMlck3J4G7f9D"
+  },
+  "../dts/public/teamsAPIs.d.ts": {
+    "src": "../dts/public/teamsAPIs.d.ts",
+    "integrity": "sha384-XQdWYDQRqtvdCrWNxbY1Or0gL9tKkziKBHqXp/+6MNjiDeItkzkdSnlP5qsjOM4W"
+  },
+  "../dts/public/version.d.ts": {
+    "src": "../dts/public/version.d.ts",
+    "integrity": "sha384-ICRRILMY8xVTMSxuwLm6fHXDSFAEpZHhWMzSQk7o0F+d5WkMtzW5qaMTxwstXB0J"
+  },
+  "../dts/public/video.d.ts": {
+    "src": "../dts/public/video.d.ts",
+    "integrity": "sha384-UkrR2OuN4haoxDR9Y6FUN4gzrlVyoaVRjoRpgBvy2YWsdFQOyG/22G1KxqClZ63a"
+  },
+  "../dts/public/webStorage.d.ts": {
+    "src": "../dts/public/webStorage.d.ts",
+    "integrity": "sha384-8AiwV1pqgyzpL37llSlrq8wcA21bY93aDKc2KEC3DEZUCiwVWEVETYCVH4asOHQ7"
+  },
+  "MicrosoftTeams.js": {
+    "src": "MicrosoftTeams.js",
+    "integrity": "sha384-8fmsNLSAIyP7OzE13icp7+Cn2mhqTrXHSurdytCp/v4lpcf0O43XKeeJkXMYNRf3"
+  },
+  "MicrosoftTeams.js.map": {
+    "src": "MicrosoftTeams.js.map",
+    "integrity": "sha384-KMgMMCQEC+0ERpFpKCUwYsYpcFyo7GEEXp0iXK/t/8YRSRY1WqEkq+JvM/Wfn00L"
+  },
+  "MicrosoftTeams.min.js": {
+    "src": "MicrosoftTeams.min.js",
+    "integrity": "sha384-qF5aviU4+QPzxBN3acdDoO3LhM+RJPalTo0WL8A0rGwf/Ishigno0KZ6NXmvSq/c"
+  },
+  "MicrosoftTeams.min.js.map": {
+    "src": "MicrosoftTeams.min.js.map",
+    "integrity": "sha384-oqg+SYmzyZIlgXolApMCdFxI+Xe7hWKCrf+HK7uSqTjoSd1dpf15XfF0YMPj+zF+"
+  }
+}

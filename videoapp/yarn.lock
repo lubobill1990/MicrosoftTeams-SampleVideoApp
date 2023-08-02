@@ -163,10 +163,8 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@microsoft/teams-js@^2.12.0":
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/@microsoft/teams-js/-/teams-js-2.12.0.tgz#4fe17da390999b25a7e7f21ec07c29344b726b36"
-  integrity sha512-4gBtIC/Jc4elZ+R9i1LR+4QFwTAPtJ4P1MsCMDafe3HLtFGu/ZQngG9jZkWQ4A/rP4z1wNaDNn39XC+dLfURHQ==
+"@microsoft/teams-js@file:../teams-js":
+  version "2.13.0"
   dependencies:
     debug "^4.3.3"
 
@@ -504,7 +502,7 @@ csstype@^3.0.2:
 
 debug@^4.1.1, debug@^4.3.2, debug@^4.3.3, debug@^4.3.4:
   version "4.3.4"
-  resolved "https://registry.npmjs.org/debug/-/debug-4.3.4.tgz"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
   dependencies:
     ms "2.1.2"
