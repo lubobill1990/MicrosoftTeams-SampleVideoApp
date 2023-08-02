@@ -61,8 +61,8 @@ export class VideoApp {
       if (this.grayscaleProcessor === null) {
         throw "Grayscale effect is not initialized";
       }
-
-      this.grayscaleProcessor.draw(videoFrame);
+      const imageBitmap = await createImageBitmap(videoFrame);
+      this.grayscaleProcessor.draw(imageBitmap);
       const grayscaledVideoFrame = new VideoFrame(
         this.grayscaleProcessor.getCanvas(),
         {
