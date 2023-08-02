@@ -21,6 +21,13 @@ export class WebGL2Grayscale {
         this.setupBuffers();
     }
 
+    public tearDown() {
+        const { gl, program } = this;
+        if (program) {
+            gl.deleteProgram(program);
+        }
+    }
+
     private setupShaders() {
         const { gl } = this;
         // create vertex shader

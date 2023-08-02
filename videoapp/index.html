@@ -1,12 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Video App Sample</title>
+    <title>Vite + TS</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div className="card">
+      <h1>This is a Microsoft Teams sample video app</h1>
+      <h3>Filters</h3>
+      <div id="filters">
+        <button data-id="00000000-0000-0000-0001-000000000000">Grayscale</button>
+        <button data-id="00000000-0000-0000-0000-000000000000">0ms delay</button>
+        <button data-id="00000000-0000-0000-0000-000000000030">30ms delay</button>
+        <button data-id="00000000-0000-0000-0000-000000000500">500ms delay</button>
+        <button data-id="00000000-0000-0000-0000-000000002000">2000ms delay</button>
+        <button data-id="00000000-0000-0000-0000-000000004000">4000ms delay</button>
+        <button data-id="10000000-0000-0000-0000-000000000000">Invalid effect</button>
+        <button data-id="00000000-0000-0001-0000-000000000000">Effect can't load asset</button>
+      </div>
+  
+      <h3>Debug</h3>
+      <label for="enableDebug">Enable local debug <input id="enableDebug" type="checkbox"></label><br>
+      <button id="startLocalCamera">Get video from local camera</button>
+      <div id="videoWrap" style="display: none;">
+        <h4>Origin video</h4>
+        <video autoplay id="originVideo"></video>
+        <h4>Processed video</h4>
+        <video autoplay id="processedVideo"></video>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
