@@ -78,23 +78,15 @@ export class VideoApp {
       });
     }
 
-    if (effectId === EFFECT_USING_WORKER) {
-      if (this.worker === null) {
-        throw "Worker effect is not initialized";
-      }
-      this.deferredVideoFrame = new Deferred<VideoFrame>();
-      this.worker.postMessage(videoFrame, [videoFrame]);
-
-      return this.deferredVideoFrame.promise;
-    }
-
     if (effectId === EFFECT_REQUIRE_BUFFER) {
       const downSampledWidth = 320;
       const downSampledHeight = 180;
+      // Down sampling can reduce the cost copying from GPU to CPU
       const imageBitmap = await createImageBitmap(videoFrame, {
         resizeWidth: downSampledWidth,
         resizeHeight: downSampledHeight,
       });
+      // In the future, it may be possible to construct a new VideoFrame from a VideoFrame with different size and format.
       const videoFrameRgba = new VideoFrame(imageBitmap, {
         displayHeight: downSampledHeight,
         displayWidth: downSampledWidth,
@@ -105,6 +97,19 @@ export class VideoApp {
       await videoFrameRgba.copyTo(videoBuffer);
 
       return videoFrame;
+    }
+
+    
+    if (effectId === EFFECT_USING_WORKER) {
+      if (this.worker === null) {
+        throw "Worker effect is not initialized";
+      }
+      this.deferredVideoFrame = new Deferred<VideoFrame>();
+      // add videoFrame into transferrable list to avoid copying the data
+      // you can also send buffer to worker
+      this.worker.postMessage(videoFrame, [videoFrame]);
+
+      return this.deferredVideoFrame.promise;
     }
 
     if (effectId === GRAYSCALE_EFFECT_ID) {
