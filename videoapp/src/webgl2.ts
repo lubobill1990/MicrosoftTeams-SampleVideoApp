@@ -2,6 +2,7 @@ export class WebGL2Grayscale {
     private canvas: HTMLCanvasElement;
     private gl: WebGL2RenderingContext;
     private program?: WebGLProgram;
+    private texture: WebGLTexture | null = null;
 
     constructor() {
         const canvas = document.createElement('canvas');
@@ -19,6 +20,7 @@ export class WebGL2Grayscale {
     public setup() {
         this.setupShaders();
         this.setupBuffers();
+        this.setupTexture();
     }
 
     public tearDown() {
@@ -84,7 +86,7 @@ export class WebGL2Grayscale {
         this.program = program;
     }
 
-    setupBuffers() {
+    private setupBuffers() {
         const { gl, program } = this;
 
         if (!program) {
@@ -119,6 +121,11 @@ export class WebGL2Grayscale {
         gl.vertexAttribPointer(texCoordAttributeLocation, 2, gl.FLOAT, false, 0, 0);
     }
 
+    private setupTexture() {
+        const { gl } = this;
+        this.texture = gl.createTexture();
+    }
+
     draw(videoFrame: VideoFrame | ImageBitmap) {
         const { gl, program } = this;
 
@@ -131,10 +138,9 @@ export class WebGL2Grayscale {
         this.canvas.width = width;
         this.canvas.height = height;
         this.gl.viewport(0, 0, width, height);
-        const texture = gl.createTexture();
-        gl.bindTexture(gl.TEXTURE_2D, texture);
+
+        gl.bindTexture(gl.TEXTURE_2D, this.texture);
         gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-        
         gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, videoFrame);
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
