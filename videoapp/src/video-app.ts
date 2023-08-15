@@ -1,6 +1,6 @@
 import { video } from "@microsoft/teams-js";
 import { WebGL2Grayscale } from "./webgl2";
-import Worker from './worker?worker'
+import Worker from "./worker?worker";
 import { Deferred } from "./deferred";
 
 const ZERO_DELAY_EMPTY_EFFECT_ID = "00000000-0000-0000-0000-000000000000";
@@ -14,6 +14,8 @@ export class VideoApp {
   private worker: Worker | null = null;
   private deferredVideoFrame: Deferred<VideoFrame> | null = null;
   private selectedEffectId: string | undefined = undefined;
+
+  constructor(private enableTimestampLog = false) {}
 
   videoEffectSelected(effectId: string | undefined) {
     if (effectId === EFFECT_ID_FAILED_TO_LOAD_ASSET) {
@@ -42,7 +44,7 @@ export class VideoApp {
           if (e.data instanceof VideoFrame) {
             this.deferredVideoFrame?.resolve(e.data);
           }
-        }
+        };
       }
     } else if (this.worker !== null) {
       this.worker.terminate();
@@ -65,6 +67,11 @@ export class VideoApp {
   async videoFrameHandler(frame: video.VideoFrameData): Promise<VideoFrame> {
     const effectId = this.selectedEffectId;
     const videoFrame = frame.videoFrame as VideoFrame;
+    if (this.enableTimestampLog) {
+      console.log(
+        `Video frame received with timestamp ${videoFrame.timestamp}`
+      );
+    }
     if (!effectId || effectId === ZERO_DELAY_EMPTY_EFFECT_ID) {
       return videoFrame;
     }
@@ -93,13 +100,14 @@ export class VideoApp {
         timestamp: videoFrame.timestamp,
         alpha: "discard",
       });
-      const videoBuffer = new Uint8Array(videoFrameRgba.displayWidth * videoFrameRgba.displayHeight * 4);
+      const videoBuffer = new Uint8Array(
+        videoFrameRgba.displayWidth * videoFrameRgba.displayHeight * 4
+      );
       await videoFrameRgba.copyTo(videoBuffer);
 
       return videoFrame;
     }
 
-    
     if (effectId === EFFECT_USING_WORKER) {
       if (this.worker === null) {
         throw "Worker effect is not initialized";
@@ -156,7 +164,7 @@ export class VideoApp {
       format: "NV12",
       codedWidth: videoBufferData.width,
       codedHeight: videoBufferData.height,
-      timestamp: Date.now(),
+      timestamp: videoBufferData.timestamp ?? 0,
     });
     const outputFrame = await this.videoFrameHandler({
       videoFrame: frame,

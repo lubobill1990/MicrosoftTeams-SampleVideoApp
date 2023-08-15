@@ -5,7 +5,7 @@ import { DebugEnv } from "./debug-env";
 
 
 function initializeVideoApp() {
-  const videoApp = new VideoApp();
+  const videoApp = new VideoApp(localStorage.getItem('enableTimestampLog') === 'true');
 
   document.addEventListener("click", (e) => {
     if ((e.target as Element)?.tagName !== "BUTTON") {
