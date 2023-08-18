@@ -8389,15 +8389,17 @@ function getInputVideoTrack(streamId, notifyError, videoPerformanceMonitor) {
                     return [4 /*yield*/, chrome.webview.getTextureStream(streamId)];
                 case 2:
                     mediaStream = _a.sent();
-                    var videoElem = document.createElement('video');
-                    videoElem.autoplay = true;
-                    videoElem.srcObject = mediaStream;
-                    document.appendChild(videoElem);
-                    console.log('Video element appended');
                     tracks = mediaStream.getVideoTracks();
                     if (tracks.length === 0) {
                         throw new Error("No video track in stream ".concat(streamId));
                     }
+                    
+                    var newMediaStream = new MediaStream(tracks);
+                    var videoElem = document.createElement('video');
+                    videoElem.autoplay = true;
+                    videoElem.srcObject = newMediaStream;
+                    document.appendChild(videoElem);
+                    console.log('Video element appended');
                     videoPerformanceMonitor === null || videoPerformanceMonitor === void 0 ? void 0 : videoPerformanceMonitor.reportTextureStreamAcquired();
                     return [2 /*return*/, tracks[0]];
                 case 3:
