@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@microsoft/teams-js": "file:../teams-js"
+    "@microsoft/teams-js": "file:../teams-js.2.13.0"
   },
   "devDependencies": {
     "typescript": "^5.0.2",
