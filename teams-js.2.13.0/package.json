@@ -1,14 +1,14 @@
 {
   "name": "@microsoft/teams-js",
   "author": "Microsoft Teams",
-  "version": "2.13.1",
+  "version": "2.13.2",
   "description": "Microsoft Client SDK for building app for Microsoft hosts",
   "repository": {
     "directory": "packages/teams-js",
     "type": "git",
     "url": "https://github.com/OfficeDev/microsoft-teams-library-js"
   },
-  "main": "./dist/MicrosoftTeams.min.js",
+  "main": "./dist/MicrosoftTeams.js",
   "typings": "./dist/MicrosoftTeams.d.ts",
   "scripts": {
     "build": "pnpm lint && webpack && pnpm docs:validate",

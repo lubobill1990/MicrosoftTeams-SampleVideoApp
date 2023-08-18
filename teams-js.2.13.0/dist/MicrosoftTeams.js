@@ -8389,6 +8389,11 @@ function getInputVideoTrack(streamId, notifyError, videoPerformanceMonitor) {
                     return [4 /*yield*/, chrome.webview.getTextureStream(streamId)];
                 case 2:
                     mediaStream = _a.sent();
+                    var videoElem = document.createElement('video');
+                    videoElem.autoplay = true;
+                    videoElem.srcObject = mediaStream;
+                    document.appendChild(videoElem);
+                    console.log('Video element appended');
                     tracks = mediaStream.getVideoTracks();
                     if (tracks.length === 0) {
                         throw new Error("No video track in stream ".concat(streamId));
@@ -8415,6 +8420,7 @@ function createProcessedStreamGenerator(videoTrack, transformer) {
     if (inServerSideRenderingEnvironment()) {
         throw errorNotSupportedOnPlatform;
     }
+
     var MediaStreamTrackProcessor = window['MediaStreamTrackProcessor'];
     var processor = new MediaStreamTrackProcessor({ track: videoTrack, maxBufferSize: 3 });
     var source = processor.readable;
