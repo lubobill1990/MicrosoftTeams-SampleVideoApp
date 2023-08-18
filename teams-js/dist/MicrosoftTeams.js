@@ -8416,7 +8416,7 @@ function createProcessedStreamGenerator(videoTrack, transformer) {
         throw errorNotSupportedOnPlatform;
     }
     var MediaStreamTrackProcessor = window['MediaStreamTrackProcessor'];
-    var processor = new MediaStreamTrackProcessor({ track: videoTrack });
+    var processor = new MediaStreamTrackProcessor({ track: videoTrack, maxBufferSize: 3 });
     var source = processor.readable;
     var MediaStreamTrackGenerator = window['MediaStreamTrackGenerator'];
     var generator = new MediaStreamTrackGenerator({ kind: 'video' });
