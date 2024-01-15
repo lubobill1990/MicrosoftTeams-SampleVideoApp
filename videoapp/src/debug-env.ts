@@ -35,15 +35,15 @@ export class DebugEnv {
   async startVideoPipeline() {
     const videoApp = new VideoApp();
 
-    const inputMediaStream = await navigator.mediaDevices.getUserMedia({
-      video: true,
-    });
     const processedVideoElement = document.getElementById(
       "processedVideo"
     ) as HTMLVideoElement;
     const originVideoElement = document.getElementById(
       "originVideo"
     ) as HTMLVideoElement;
+    const inputMediaStream = await navigator.mediaDevices.getUserMedia({
+      video: true,
+    });
     const track = inputMediaStream.getVideoTracks()[0];
     const processor = new MediaStreamTrackProcessor({ track });
     const generator = new MediaStreamTrackGenerator({ kind: "video" });

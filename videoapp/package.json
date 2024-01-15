@@ -4,16 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "yarn install --force && vite",
     "build": "yarn install --force && tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@microsoft/teams-js": "file:../teams-js.2.13.0"
+    "@microsoft/teams-js": "^2.19.0"
   },
   "devDependencies": {
+    "@types/dom-mediacapture-transform": "^0.1.6",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "@types/dom-mediacapture-transform": "^0.1.6"
+    "vite": "^4.4.5"
   }
 }

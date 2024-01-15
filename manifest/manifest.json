@@ -45,7 +45,8 @@
     }
   },
   "validDomains": [
-    "microsoft-teams-sample-video-app.vercel.app"
+    "microsoft-teams-sample-video-app.vercel.app",
+    "6c7a-2404-f801-9000-1a-9964-6268-2193-2115.ngrok-free.app"
   ],
   "localizationInfo": {
     "defaultLanguageTag": "en-us"
@@ -107,8 +108,7 @@
         "name": "Others_Video effect handler reject promise by sample app",
         "thumbnail": "00000000-0000-0001-0000-000000000000_thumbnail.png"
       }
-      
     ],
-    "videoFiltersConfigurationUrl": "https://microsoft-teams-sample-video-app.vercel.app"
+    "videoFiltersConfigurationUrl": "https://6c7a-2404-f801-9000-1a-9964-6268-2193-2115.ngrok-free.app"
   }
 }

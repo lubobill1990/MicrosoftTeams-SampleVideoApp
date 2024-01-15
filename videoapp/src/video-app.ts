@@ -1,13 +1,13 @@
-import { video } from "@microsoft/teams-js";
-import { WebGL2Grayscale } from "./webgl2";
-import Worker from "./worker?worker";
-import { Deferred } from "./deferred";
+import { videoEffects } from '@microsoft/teams-js';
+import { WebGL2Grayscale } from './webgl2';
+import Worker from './worker?worker';
+import { Deferred } from './deferred';
 
-const ZERO_DELAY_EMPTY_EFFECT_ID = "00000000-0000-0000-0000-000000000000";
-const GRAYSCALE_EFFECT_ID = "00000000-0000-0000-0001-000000000000";
-const EFFECT_REQUIRE_BUFFER = "00000000-0000-0000-0002-000000000000";
-const EFFECT_USING_WORKER = "00000000-0000-0000-0003-000000000000";
-const EFFECT_ID_FAILED_TO_LOAD_ASSET = "00000000-0000-0001-0000-000000000000";
+const ZERO_DELAY_EMPTY_EFFECT_ID = '00000000-0000-0000-0000-000000000000';
+const GRAYSCALE_EFFECT_ID = '00000000-0000-0000-0001-000000000000';
+const EFFECT_REQUIRE_BUFFER = '00000000-0000-0000-0002-000000000000';
+const EFFECT_USING_WORKER = '00000000-0000-0000-0003-000000000000';
+const EFFECT_ID_FAILED_TO_LOAD_ASSET = '00000000-0000-0001-0000-000000000000';
 
 export class VideoApp {
   private grayscaleProcessor: WebGL2Grayscale | null = null;
@@ -58,13 +58,15 @@ export class VideoApp {
   }
 
   private getLatencyFromEffectId(effectId: string): number {
-    if (effectId.indexOf("00000000-0000-0000-0000-") === 0) {
-      return parseInt(effectId.split("-")[4]);
+    if (effectId.indexOf('00000000-0000-0000-0000-') === 0) {
+      return parseInt(effectId.split('-')[4]);
     }
     return 0;
   }
 
-  async videoFrameHandler(frame: video.VideoFrameData): Promise<VideoFrame> {
+  async videoFrameHandler(
+    frame: videoEffects.VideoFrameData
+  ): Promise<VideoFrame> {
     const effectId = this.selectedEffectId;
     const videoFrame = frame.videoFrame as VideoFrame;
     if (this.enableTimestampLog) {
@@ -98,7 +100,7 @@ export class VideoApp {
         displayHeight: downSampledHeight,
         displayWidth: downSampledWidth,
         timestamp: videoFrame.timestamp,
-        alpha: "discard",
+        alpha: 'discard',
       });
       const videoBuffer = new Uint8Array(
         videoFrameRgba.displayWidth * videoFrameRgba.displayHeight * 4
@@ -110,7 +112,7 @@ export class VideoApp {
 
     if (effectId === EFFECT_USING_WORKER) {
       if (this.worker === null) {
-        throw "Worker effect is not initialized";
+        throw 'Worker effect is not initialized';
       }
       this.deferredVideoFrame = new Deferred<VideoFrame>();
       // add videoFrame into transferrable list to avoid copying the data
@@ -122,7 +124,7 @@ export class VideoApp {
 
     if (effectId === GRAYSCALE_EFFECT_ID) {
       if (this.grayscaleProcessor === null) {
-        throw "Grayscale effect is not initialized";
+        throw 'Grayscale effect is not initialized';
       }
 
       this.grayscaleProcessor.draw(videoFrame);
@@ -142,7 +144,7 @@ export class VideoApp {
   }
 
   async videoBufferHandler(
-    videoBufferData: video.VideoBufferData,
+    videoBufferData: videoEffects.VideoBufferData,
     notifyVideoFrameProcessed: () => void,
     _notifyError: (error: string) => void
   ) {
@@ -161,7 +163,7 @@ export class VideoApp {
     }
 
     const frame = new VideoFrame(videoBufferData.videoFrameBuffer, {
-      format: "NV12",
+      format: 'NV12',
       codedWidth: videoBufferData.width,
       codedHeight: videoBufferData.height,
       timestamp: videoBufferData.timestamp ?? 0,
