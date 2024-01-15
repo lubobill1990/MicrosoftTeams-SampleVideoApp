@@ -114,7 +114,7 @@
 
 "@microsoft/teams-js@^2.19.0":
   version "2.19.0"
-  resolved "https://office.pkgs.visualstudio.com/OC/_packaging/OC_PublicPackages/npm/registry/@microsoft/teams-js/-/teams-js-2.19.0.tgz#b9d971926469cc25ab9b850d10f95f36bd1d8f32"
+  resolved "https://registry.yarnpkg.com/@microsoft/teams-js/-/teams-js-2.19.0.tgz#b9d971926469cc25ab9b850d10f95f36bd1d8f32"
   integrity sha1-udlxkmRpzCWrm4UNEPlfNr0djzI=
   dependencies:
     debug "^4.3.3"
@@ -133,7 +133,7 @@
 
 debug@^4.3.3:
   version "4.3.4"
-  resolved "https://office.pkgs.visualstudio.com/OC/_packaging/OC_PublicPackages/npm/registry/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
   integrity sha1-Exn2V5NX8jONMzfSzdSRS7XcyGU=
   dependencies:
     ms "2.1.2"
@@ -173,7 +173,7 @@ fsevents@~2.3.2:
 
 ms@2.1.2:
   version "2.1.2"
-  resolved "https://office.pkgs.visualstudio.com/OC/_packaging/OC_PublicPackages/npm/registry/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
+  resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk=
 
 nanoid@^3.3.6:
