@@ -1,17 +1,20 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Microsoft Teams sample video app</title>
   </head>
+
   <body>
     <div className="card">
       <h1>This is a Microsoft Teams sample video app</h1>
       <h3>Filters</h3>
       <div id="filters">
         <button data-id="00000000-0000-0000-0001-000000000000">Grayscale</button>
+        <button data-id="00000000-0000-0000-0010-000000000000">Count down</button>
         <button data-id="00000000-0000-0000-0002-000000000000">Effect consuming buffer</button>
         <button data-id="00000000-0000-0000-0003-000000000000">Effect using worker</button>
         <button data-id="00000000-0000-0000-0000-000000000000">0ms delay</button>
@@ -22,7 +25,7 @@
         <button data-id="10000000-0000-0000-0000-000000000000">Invalid effect</button>
         <button data-id="00000000-0000-0001-0000-000000000000">Effect can't load asset</button>
       </div>
-  
+
       <h3>Debug</h3>
       <label for="enableDebug">Enable local debug <input id="enableDebug" type="checkbox"></label><br>
       <button id="startLocalCamera">Get video from local camera</button>
@@ -32,7 +35,9 @@
         <h4>Processed video</h4>
         <video autoplay id="processedVideo"></video>
       </div>
+      <div id='vue-app' style='margin-top: 2rem; display: flex; flex-direction: column; gap: .5rem'></div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
+
 </html>

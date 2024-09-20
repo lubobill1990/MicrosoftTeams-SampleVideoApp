@@ -59,6 +59,21 @@
         "thumbnail": "00000000-0000-0000-0001-000000000000_thumbnail.png"
       },
       {
+        "id": "00000000-0000-0000-0010-000000000000",
+        "name": "Others_Be back in 1 minute by sample app",
+        "thumbnail": "00000000-0000-0000-0010-000000000000_thumbnail.png"
+      },
+      {
+        "id": "00000000-0000-0000-0030-000000000000",
+        "name": "Others_Be back in 3 minutes by sample app",
+        "thumbnail": "00000000-0000-0000-0030-000000000000_thumbnail.png"
+      },
+      {
+        "id": "00000000-0000-0000-0050-000000000000",
+        "name": "Others_Be back in 5 minutes by sample app",
+        "thumbnail": "00000000-0000-0000-0050-000000000000_thumbnail.png"
+      },
+      {
         "id": "00000000-0000-0000-0000-000000000000",
         "name": "Others_Send back origin video frame with 0ms delay by sample app",
         "thumbnail": "00000000-0000-0000-0000-000000000000_thumbnail.png"

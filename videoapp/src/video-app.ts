@@ -2,18 +2,23 @@ import { videoEffects } from '@microsoft/teams-js';
 import { WebGL2Grayscale } from './webgl2';
 import Worker from './worker?worker';
 import { Deferred } from './deferred';
+import { Canvas2D } from './canvas2d';
 
 const ZERO_DELAY_EMPTY_EFFECT_ID = '00000000-0000-0000-0000-000000000000';
 const GRAYSCALE_EFFECT_ID = '00000000-0000-0000-0001-000000000000';
 const EFFECT_REQUIRE_BUFFER = '00000000-0000-0000-0002-000000000000';
 const EFFECT_USING_WORKER = '00000000-0000-0000-0003-000000000000';
 const EFFECT_ID_FAILED_TO_LOAD_ASSET = '00000000-0000-0001-0000-000000000000';
+const EFFECT_COUNT_DOWN_1 = '00000000-0000-0000-0010-000000000000';
+const EFFECT_COUNT_DOWN_3 = '00000000-0000-0000-0030-000000000000';
+const EFFECT_COUNT_DOWN_5 = '00000000-0000-0000-0050-000000000000';
 
 export class VideoApp {
   private grayscaleProcessor: WebGL2Grayscale | null = null;
   private worker: Worker | null = null;
   private deferredVideoFrame: Deferred<VideoFrame> | null = null;
   private selectedEffectId: string | undefined = undefined;
+  private context2dProcessor: Canvas2D | null = null;
 
   constructor(private enableTimestampLog = false) {}
 
@@ -35,6 +40,28 @@ export class VideoApp {
     } else if (this.grayscaleProcessor !== null) {
       this.grayscaleProcessor.tearDown();
       this.grayscaleProcessor = null;
+    }
+
+    if (
+      effectId &&
+      [EFFECT_COUNT_DOWN_1, EFFECT_COUNT_DOWN_3, EFFECT_COUNT_DOWN_5].includes(
+        effectId
+      )
+    ) {
+      if (this.context2dProcessor !== null) {
+        this.context2dProcessor.tearDown();
+      }
+      this.context2dProcessor = new Canvas2D();
+      const seconds =
+        {
+          [EFFECT_COUNT_DOWN_1]: 60,
+          [EFFECT_COUNT_DOWN_3]: 180,
+          [EFFECT_COUNT_DOWN_5]: 300,
+        }[effectId] ?? 60;
+      this.context2dProcessor.setup(seconds);
+    } else {
+      this.context2dProcessor?.tearDown();
+      this.context2dProcessor = null;
     }
 
     if (effectId === EFFECT_USING_WORKER) {
@@ -138,6 +165,26 @@ export class VideoApp {
       );
 
       return grayscaledVideoFrame;
+    }
+    console.log('effectId', effectId);
+
+    if (
+      [EFFECT_COUNT_DOWN_1, EFFECT_COUNT_DOWN_3, EFFECT_COUNT_DOWN_5].includes(
+        effectId
+      )
+    ) {
+      if (this.context2dProcessor === null) {
+        throw 'Canvas2D effect is not initialized';
+      }
+      console.log('priocessing');
+
+      await this.context2dProcessor.draw(videoFrame);
+
+      return new VideoFrame(this.context2dProcessor.getCanvas(), {
+        displayHeight: videoFrame.displayHeight, // Should keep the same size as the original video frame
+        displayWidth: videoFrame.displayWidth,
+        timestamp: videoFrame.timestamp,
+      });
     }
     // Throw error if the effect id is not recognized or some other error happens, so that Teams can handle the error properly.
     throw `Unknown effect id ${effectId}`;

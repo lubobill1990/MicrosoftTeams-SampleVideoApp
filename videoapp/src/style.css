@@ -6,7 +6,8 @@
   color: #888;
 }
 
-#canvasWrap, video {
+#canvasWrap,
+video {
   width: 320px;
   max-width: 100%;
 }
